@@ -1,0 +1,23 @@
+name: "Dependency Abandonment & Bus Factor Scorer Action"
+description: "Audits open source supply chain risk by analyzing commit velocity, bus factor, and maintainer churn."
+author: "Magebase Inc"
+inputs:
+  target_param:
+    description: "Target input for analysis"
+    required: true
+    default: "current_repo"
+  fail_on_severity:
+    description: "Fail check run if severity is HIGH or CRITICAL"
+    required: false
+    default: "true"
+outputs:
+  status:
+    description: "Audit evaluation status"
+  score:
+    description: "Numeric health score or CVSS rating"
+runs:
+  using: "node20"
+  main: "index.js"
+branding:
+  icon: "shield"
+  color: "purple"
